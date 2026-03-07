@@ -1,14 +1,8 @@
 {
   "name": "Claude Code Dev",
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "remoteUser": "vscode",
   "postCreateCommand": "bash claude-cli-install.sh",
-  "remoteEnv": {
-    "ANTHROPIC_API_KEY": "${localEnv:ANTHROPIC_API_KEY}"
-  },
-  "runArgs": [
-    "--env-file",
-    ".env"
-  ],
   "customizations": {
     "vscode": {
       "settings": {
