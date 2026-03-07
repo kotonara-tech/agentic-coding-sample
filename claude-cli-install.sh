@@ -7,6 +7,9 @@ set -e
 
 echo "Starting devcontainer environment initialization..."
 
+echo "Installing UV (Universal Version Manager) for Spec-Kit installation..."
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
 # Load .env if present (fallback when runArgs --env-file is not used)
 if [ -f ".env" ]; then
     set -a
@@ -28,6 +31,18 @@ export PATH="$HOME/.local/bin:$PATH"
 if ! grep -q 'export PATH="$HOME/.local/bin:$PATH"' "$HOME/.bashrc"; then
     echo 'export PATH="$HOME/.local/bin:$PATH"' >> "$HOME/.bashrc"
     echo " Added $HOME/.local/bin to PATH in .bashrc"
+fi
+
+echo " Installing Node.js and npx..."
+if ! command -v npx &> /dev/null; then
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    echo "    Node.js and npx installed successfully"
+    echo "    Node version: $(node --version)"
+    echo "    npm version: $(npm --version)"
+    echo "    npx version: $(npx --version)"
+else
+    echo "    npx already installed: $(npx --version)"
 fi
 
 echo " Installing Claude Code CLI..."
@@ -75,3 +90,6 @@ fi
 echo ""
 echo "Ready for Claude Code development!"
 echo "claude --dangerously-skip-permissions is enabled by default via settings.json"
+
+echo "Installing Spec-Kit"
+uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
