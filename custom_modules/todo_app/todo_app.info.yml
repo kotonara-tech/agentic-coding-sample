@@ -1,0 +1,11 @@
+name: ToDo App
+type: module
+description: 'Adds a Todo content type and a /todos list view.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:node
+  - drupal:views
+  - drupal:field
+  - drupal:text
+  - drupal:options

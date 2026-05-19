@@ -1,0 +1,6 @@
+{
+  "enabledMcpjsonServers": [
+    "spec-workflow"
+  ],
+  "enableAllProjectMcpServers": true
+}

@@ -1,0 +1,42 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.todo.field_description
+    - field.field.node.todo.field_status
+    - node.type.todo
+  enforced:
+    module:
+      - todo_app
+  module:
+    - text
+    - user
+id: node.todo.default
+targetEntityType: node
+bundle: todo
+mode: default
+content:
+  field_description:
+    label: above
+    type: text_default
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_status:
+    label: inline
+    type: boolean
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

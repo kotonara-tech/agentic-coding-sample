@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - todo_app
+name: Todo
+type: todo
+description: 'A single ToDo item with a description and a done status.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false
